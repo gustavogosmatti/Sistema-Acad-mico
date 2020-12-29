@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Lista de Alunos por turma</title>
+</head>
+<body>
+	<div th:switch="${aluno}">
+		<h2 th:case="null">Nenhum aluno cadastradado nesta turma!</h2>
+		<div th:case="*">
+			<h2>Lista de Alunos</h2>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Aluno</th>
+						<th>Idade</th>
+						<th>Email</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="aluno : ${aluno}">
+						<td th:text="${aluno.nome}"></td>
+						<td th:text="${aluno.idade}"></td>
+						<td th:text="${aluno.email}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p>
+
+			<a href="/menuInicial"><button>Menu Inicial</button></a> <br> <input type="button"
+				value="Voltar" onClick="history.go(-1)">
+		</p>
+	</div>
+</body>
+</html>

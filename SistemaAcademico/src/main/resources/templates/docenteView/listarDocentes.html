@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Lista de Docentes</title>
+</head>
+<body>
+	<div th:switch="${docentes}">
+		<h2 th:case="null">Nenhum docente cadastrado!</h2>
+		<div th:case="*">
+			<h2>Docentes</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Docente</th>
+						<th>Email</th>
+						<th>Formação</th>
+						<th>Idade</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="docente : ${docentes}">
+						<td th:text="${docente.nome}"></td>
+						<td th:text="${docente.email}"></td>
+						<td th:text="${docente.formacao}"></td>
+						<td th:text="${docente.idade}"></td>
+						<td><a th:href="@{/docentes/listarTurmasDocente/{id}(id=${docente.id})}"> Listar Turmas </a></td>
+						<td><a th:href="@{/editarDocente/{id}(id=${docente.id})}">Editar</a></td>
+						<td><a th:href="@{/excluirDocente/{id}(id=${docente.id})}">Excluir</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p>
+		    
+			<a href="/docente"><button>Cadastrar novo Docente</button></a>
+			<br>
+			<a href="/menuInicial"><button>Menu Inicial</button></a>
+			
+		</p>
+	</div>
+</body>
+</html>

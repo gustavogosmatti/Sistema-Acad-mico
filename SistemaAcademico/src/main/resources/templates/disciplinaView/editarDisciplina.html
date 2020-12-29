@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Editar Disciplina</title>
+</head>
+<body>
+	<h1>Editar Disciplina</h1>
+	<form action="#" method="post" th:action="@{/salvarEdicaoDisciplina}"
+		th:object="${disciplina}">
+		<input type="hidden" th:field="*{idDisciplina}"> <label
+			for="nome">Disciplina</label> <input type="text" id="nome"
+			th:field="*{nome}" />
+		<div>
+			<input type="checkbox" th:field="*{status}" id="status" name="status">
+			<label for="status">Ativo</label>
+		</div>
+		<input type="submit" value="Salvar alterações">
+	</form>
+	<div class="result message">
+		<p>
+			<a href="/listarDisciplinas"><button>Listar Disciplinas</button></a>
+		</p>
+	</div>
+
+</body>
+</html>

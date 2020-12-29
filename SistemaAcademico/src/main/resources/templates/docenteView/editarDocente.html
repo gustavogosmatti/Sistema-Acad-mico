@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Editar Docente</title>
+</head>
+<body>
+	<h1>Editar Docente</h1>
+	<form action="#" method="post" th:action="@{/salvarEdicaoDocente}"
+		th:object="${docente}">
+		<input type="hidden" th:field="*{id}"> <label for="nome">Nome</label>
+		<input type="text" id="nome" th:field="*{nome}" /> <label for="email">Email</label>
+		<input type="text" id="email" th:field="*{email}"> <label
+			for="idade">Idade</label> <input type="text" id="idade"
+			th:field="*{idade}"> <label for="formacao">Formação</label> <input
+			type="text" id="formacao" th:field="*{formacao}" /> <input
+			type="submit" value="Salvar Alterações">
+	</form>
+		<p>
+			<a href="/listarDocentes"><button>Listar Docentes</button></a>
+		</p>
+	</div>
+
+</body>
+</html>

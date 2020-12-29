@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Lista de Alunos</title>
+</head>
+<body>
+	<div th:switch="${aluno}">
+		<h2 th:case="null">Nenhum aluno cadastrado!</h2>
+		<div th:case="*">
+			<h2>
+				Aluno: <span th:text="${aluno.nome}"></span>
+			</h2>
+			<br>
+			<ul>
+			<li th:text="'Idade: '+${aluno.idade}"></li>
+			<li th:text="'Email: '+${aluno.email}"></li>
+			<li th:text="'Turma: '+${aluno.turma.nome}"></li>
+			<li th:text="'Disciplina: '+${aluno.turma.disciplina.nome}"></li>
+			<li>Nota:</li>
+			<li>Faltas:</li>
+			</ul>
+			
+			<a href="/menuInicial"><button>Menu Inicial</button></a>
+		</div>
+	</div>
+</body>
+</html>

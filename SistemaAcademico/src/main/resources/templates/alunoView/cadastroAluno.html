@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Cadastro de Aluno</title>
+</head>
+<body>
+	<h1>Cadastro de Aluno</h1>
+	<form action="#" method="post" th:action="@{/cadastrarAluno}"
+		th:object="${aluno}">
+		<label for="login">Usuario</label> <input type="text" id="login"
+			th:field="*{usuario.login}" /> <label for="senha">Senha</label> <input
+			type="password" id="senha" th:field="*{usuario.senha}" /> <label
+			for="nome">Nome</label> <input type="text" id="nome"
+			th:field="*{nome}" /> <label for="email">Email</label> <input
+			type="text" id="email" th:field="*{email}"> <label
+			for="idade">Idade</label> <input type="text" id="idade"
+			th:field="*{idade}"> <label for="turma">Turma</label> <select
+			name="turma" th:field="*{turma}">
+			<option th:each="turma : ${turma}" th:value="${turma.idTurma}"
+				th:text="${turma.nome}+ ' -- ' + 'Disciplina: '+ ${turma.disciplina.nome}"></option>
+		</select>
+		 <label style="display:none" for="role">Tipo usuário</label> <select style="display:none"
+			name="role" th:field="*{role}">
+			<option th:each="role : ${roles}" th:value="ROLE_ALUNO"
+				th:text="${role.nomeRole}"></option>
+		</select>
+		 <input type="submit" value="Cadastrar Aluno">
+	</form>
+	<div class="result message">
+		<p>
+			<a href="/listarAlunos"><button>Listar Alunos</button></a> <br>
+			<a href="/menuInicial"><button>Menu Inicial</button></a>
+
+
+		</p>
+	</div>
+</body>
+</html>

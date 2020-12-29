@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Sistema Acadêmico</title>
+</head>
+<body>
+	<h2 th:if="${role.nomeRole == 'ROLE_ADMIN'}">
+		Seja Bem Vindo: <span th:if="${role.nomeRole == 'ROLE_ADMIN'}"
+			th:text="${aluno.nome}"> </span> <span
+			th:unless="${role.nomeRole == 'ROLE_ADMIN'}">teste </span>
+
+	</h2>
+	<h2 th:if="${role.nomeRole == 'ROLE_ALUNO'}">
+		Seja Bem Vindo: <span th:if="${role.nomeRole == 'ROLE_ALUNO'}"
+			th:text="${aluno.nome}"> </span> <span
+			th:unless="${role.nomeRole == 'ROLE_ALUNO'}">teste </span>
+
+	</h2>
+	<h2 th:if="${role.nomeRole == 'ROLE_DOCENTE'}">
+		Seja Bem Vindo: <span th:if="${role.nomeRole == 'ROLE_DOCENTE'}"
+			th:text="${docente.nome}"> </span> <span
+			th:unless="${role.nomeRole == 'ROLE_DOCENTE'}">teste </span>
+
+	</h2>
+	<ul th:if="${role.nomeRole=='ROLE_ADMIN'}">
+		<li><a href="/aluno">Cadastro de Aluno</a></li>
+		<li><a href="/listarAlunos">Listar Alunos</a></li>
+		<li><a href="/docente">Cadastro de Docente</a></li>
+		<li><a href="/listarDocentes">Listar Docentes</a></li>
+		<li><a href="/turma">Cadastro de Turma</a></li>
+		<li><a href="/listarTurmas">Listar Turmas</a></li>
+		<li><a href="/disciplina">Cadastro de Disciplina</a></li>
+		<li><a href="/listarDisciplinas">Listar Disciplinas</a></li>
+	</ul>
+	<ul th:if="${role.nomeRole=='ROLE_ALUNO'}">
+
+		<li><a th:href="@{/aluno/listarDadosAluno/{id}(id=${aluno.id})}">Exibir informações</a></li>
+		
+
+	</ul>
+
+
+
+
+
+
+</body>
+</html>

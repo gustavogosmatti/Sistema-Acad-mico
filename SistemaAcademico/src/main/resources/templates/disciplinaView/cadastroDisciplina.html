@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Cadastro de Disciplina</title>
+</head>
+<body>
+	<h1>Cadastro de Disciplina</h1>
+	<form action="#" method="post" th:action="@{/cadastrarDisciplina}"
+		th:object="${disciplina}">
+		<label for="nome">Disciplina</label> <input type="text" id="nome"
+			th:field="*{nome}" />
+		<div>
+			<input type="checkbox" th:field="*{status}" id="status" name="status"
+				checked> <label for="status">Ativo</label>
+		</div>
+		<input type="submit" value="Insere Disciplina">
+	</form>
+	<div class="result message">
+		<p>
+			<a href="/listarDisciplinas"><button>Listar Disciplinas</button></a>
+			<br> <a href="/menuInicial"><button>Menu Inicial</button></a>
+		</p>
+	</div>
+
+</body>
+</html>

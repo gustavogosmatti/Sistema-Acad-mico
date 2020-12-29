@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Editar Turma</title>
+</head>
+<body>
+	<h1>Editar Turma</h1>
+	<form action="#" method="post" th:action="@{/salvarEdicaoTurma}"
+		th:object="${turma}">
+		<input type="hidden" th:field="*{idTurma}"> <label for="nome">Nome</label>
+		<input type="text" id="nome" th:field="*{nome}" /> <label
+			for="disciplina">Disciplina</label> <select name="disciplina"
+			th:field="*{disciplina}">
+			<option th:each="disciplina : ${disciplina}"
+				th:if="${disciplina.status == true}"
+				th:value="${disciplina.idDisciplina}" th:text="${disciplina.nome}"></option>
+		</select> <label for="docente">Docente</label> <select name="docente"
+			th:field="*{docente}">
+			<option th:each="docente : ${docente}"
+				th:value="${docente.idDocente}" th:text="${docente.nome}"></option>
+		</select> <input type="submit" value="Cadastrar">
+	</form>
+	<div class="result message">
+		<p>
+			<a href="/listarTurmas"><button>Listar Turmas</button></a>
+		</p>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Lista de Turmas</title>
+</head>
+<body>
+	<div th:switch="${turma}">
+		<h2 th:case="null">Nenhuma turma cadastrada!</h2>
+		<div th:case="*">
+			<h2>Turmas</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Turma</th>
+						<th>Disciplina</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="turma : ${turma}">
+						<td th:text="${turma.nome}"></td>
+						<td th:text="${turma.disciplina.nome}"></td>
+						<td><a
+							th:href="@{/docentes/listarTurmasDocente/listarAlunosTurmaDocente/{id}(id=${turma.idTurma})}">
+								Listar Alunos </a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p>
+
+
+			<a href="/menuInicial"><button>Menu Inicial</button></a> <br> <a
+				href="/listarDocentes"><button>Voltar</button></a>
+		</p>
+	</div>
+</body>
+</html>
